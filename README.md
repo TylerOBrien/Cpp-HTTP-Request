@@ -13,7 +13,11 @@ void handle_response(const std::string& data) {
 
 int main() {
     boost::asio::io_service ioservice;
-    http::send(ioservice, "google.com", "GET /something_that_doesnt_exist", handle_response);
+
+    http::send(
+        ioservice, "google.com", "GET /something_that_doesnt_exist", handle_response
+    );
+
     ioservice.run();
 }
 ```
